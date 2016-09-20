@@ -1,6 +1,9 @@
 package my.winapp.springdatabootrabbitmqsender.configuration;
 
+import org.springframework.amqp.core.Binding;
+import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.core.TopicExchange;
 import org.springframework.amqp.rabbit.annotation.EnableRabbit;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
@@ -36,7 +39,17 @@ public class RabbitConfiguration {
 	
 	@Bean
 	public Queue queue() {
-		return new Queue("hello1");
+		return new Queue("create-profile");
 	}
+	
+//	@Bean
+//    TopicExchange exchange() {
+//        return new TopicExchange("spring-boot-exchange");
+//    }
+//	
+//	@Bean
+//    Binding binding(Queue queue, TopicExchange exchange) {
+//        return BindingBuilder.bind(queue).to(exchange).with("create-profile");
+//    }
 
 }
